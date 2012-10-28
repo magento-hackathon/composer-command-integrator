@@ -1,0 +1,32 @@
+{
+    "name":"magento-hackathon/composer-command-integrator",
+    "description":"module to create binaries and scripts which get executed in context of composer so they are able to access content from the composer.json ",
+    "minimum-stability":"dev",
+    "type":"library",
+    "license":"OSL-3.0",
+    "authors":[
+        {
+            "name":"Daniel Fahlke aka Flyingmana",
+            "email":"daniel@digitalmanufaktur.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://packages.firegento.com"
+        }
+    ],
+    "require":{
+        "composer/composer":"*"
+    },
+    "require-dev":{
+    },
+    "autoload":{
+        "psr-0":{
+            "MagentoHackathon\\Composer\\Command":"src/"
+        }
+    },
+    "extra":{
+
+    }
+}
