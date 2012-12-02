@@ -29,7 +29,7 @@ class Slot extends \Composer\Console\Application
 
             if( isset( $package->getExtra()['composer-command-registry'] ) ){
                 foreach($package->getExtra()['composer-command-registry'] as $packageCommand ){
-                    var_dump($packageCommand);
+                    //var_dump($packageCommand);
                     $commands[] = new $packageCommand;
                 }
             }
