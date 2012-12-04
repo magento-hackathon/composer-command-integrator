@@ -24,11 +24,13 @@ class Slot extends \Composer\Console\Application
     public function getDefaultCommands(){
 
         $commands = array( new ListCommand());
+        
+        $repositories = $this->getComposer()->getRepositoryManager()->getLocalRepositories();
+        foreach( $repositories[0]->getPackages() as $package ){
 
-        foreach( $this->getComposer()->getRepositoryManager()->getLocalRepositories()[0]->getPackages() as $package ){
-
-            if( isset( $package->getExtra()['composer-command-registry'] ) ){
-                foreach($package->getExtra()['composer-command-registry'] as $packageCommand ){
+            $extra = $package->getExtra();
+            if( isset($extra['composer-command-registry']) ){
+                foreach($extra['composer-command-registry'] as $packageCommand ){
                     //var_dump($packageCommand);
                     $commands[] = new $packageCommand;
                 }
