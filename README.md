@@ -26,12 +26,14 @@ All Commands added to the extra.composer-command-registry in your libraries comp
 
 As you see, this is an Array, so you can add more than one command per module.
 
-You can execute them in your project with:
+To get a help message and see a list of available commands, simply call the binary:
 
 ```
-
     php ./vendor/bin/composerCommandIntegrator.php
-
+```
+To execute an command, simply specify it as an argument. For example:
+```
+    php ./vendor/bin/composerCommandIntegrator.php magento-module-deploy
 ```
 
 
