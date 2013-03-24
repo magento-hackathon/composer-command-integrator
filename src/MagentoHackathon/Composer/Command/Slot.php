@@ -25,8 +25,8 @@ class Slot extends \Composer\Console\Application
 
         $commands = array( new ListCommand());
         
-        $repositories = $this->getComposer()->getRepositoryManager()->getLocalRepositories();
-        foreach( $repositories[0]->getPackages() as $package ){
+        $repository = $this->getComposer()->getRepositoryManager()->getLocalRepository();
+        foreach( $repository->getPackages() as $package ){
 
             $extra = $package->getExtra();
             if( isset($extra['composer-command-registry']) ){
