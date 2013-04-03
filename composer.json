@@ -14,6 +14,8 @@
         "composer/composer":"*"
     },
     "require-dev":{
+        "phpunit/phpunit":"*",
+        "composer/composer":"*"
     },
     "autoload":{
         "psr-0":{

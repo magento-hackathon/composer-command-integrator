@@ -12,46 +12,53 @@ use Composer\IO\IOInterface;
 use Composer\IO\ConsoleIO;
 use Composer\Util\ErrorHandler;
 
+/**
+ * Class Slot
+ * Collects the commands defined in the "extra['composer-command-registry']" node
+ * in "magento-module" extensions of the current project
+ *
+ * @package MagentoHackathon\Composer\Command
+ */
 class Slot extends \Composer\Console\Application
 {
-    public function __construct( $composer ){
-
-        $this->setComposer($composer);
+    /**
+     * @param $composer
+     */
+    public function __construct($composer)
+    {
+        $this->composer = $composer;
         parent::__construct();
-
     }
 
-    public function getDefaultCommands(){
-
-        $commands = array( new ListCommand());
-        
+    /**
+     * {@inheritdoc}
+     */
+    public function getDefaultCommands()
+    {
+        $commands = array(new HelpCommand(), new ListCommand());
         $repository = $this->getComposer()->getRepositoryManager()->getLocalRepository();
-        foreach( $repository->getPackages() as $package ){
 
+        foreach ($repository->getPackages() as $package) {
             $extra = $package->getExtra();
-            if( isset($extra['composer-command-registry']) ){
-                foreach($extra['composer-command-registry'] as $packageCommand ){
-                    //var_dump($packageCommand);
-                    $commands[] = new $packageCommand;
+            if (isset($extra['composer-command-registry'])) {
+                foreach ($extra['composer-command-registry'] as $packageCommand) {
+                    if (class_exists($packageCommand)) {
+                        $commands[] = new $packageCommand;
+                    } else {
+                        throw new \Exception('Command ' . $packageCommand . ' not found');
+                    }
                 }
             }
         }
 
-
         return $commands;
-
-
     }
 
-    public function setComposer($composer){
-        $this->composer = $composer;
-    }
-
-    public function doRun(InputInterface $input, OutputInterface $output){
-
-        //$this->io = new ConsoleIO($input, $output, $this->getHelperSet());
-        //var_dump($this->io);
-        //$this->getComposer();
-        parent::doRun( $input, $output);
+    /**
+     * {@inheritdoc}
+     */
+    public function doRun(InputInterface $input, OutputInterface $output)
+    {
+        return parent::doRun($input, $output);
     }
 }
