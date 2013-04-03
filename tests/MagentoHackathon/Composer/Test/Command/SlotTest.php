@@ -155,7 +155,7 @@ class SlotTest extends \PHPUnit_Framework_TestCase
      * Test "Slot" can catch errors if command not exist
      * TODO think about possibility to skip not existed commands
      *
-     * @expectedExceptionMessage Command \MagentoHackathon\Composer\Test\Command\Stab\Command2Command not found
+     * @expectedException \Exception
      */
     public function testExceptionNonExistedCommands()
     {
