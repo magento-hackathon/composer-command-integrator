@@ -42,3 +42,9 @@ Projects wich implemented this
 ------------------------------
 
 * [Magento Composer Installer](https://github.com/magento-hackathon/magento-composer-installer) - installer for Magento Modules via Composer
+
+Tests
+-----
+
+    phpunit
+
