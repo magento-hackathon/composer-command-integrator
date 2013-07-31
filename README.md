@@ -1,6 +1,8 @@
 Composer Command Integrator
 ===========================
 
+[![Build Status](https://travis-ci.org/magento-hackathon/composer-command-integrator.png)](https://travis-ci.org/magento-hackathon/composer-command-integrator)
+
 Extending the functionality of Composer is not that easy.
 There are several points, which make it harder to add functionality by external libraries.
 
