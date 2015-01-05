@@ -11,14 +11,12 @@
         }
     ],
     "require":{
+        "symfony/console": "<2.5",
         "composer/composer":"*"
     },
     "require-dev":{
         "phpunit/phpunit":"*",
         "composer/composer":"*"
-    },
-    "conflict":{
-        "symfony/console": ">=2.5"
     },
     "autoload":{
         "psr-0":{
