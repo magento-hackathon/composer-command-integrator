@@ -40,7 +40,7 @@ To execute an command, simply specify it as an argument. For example:
 
 
 
-Projects wich implemented this
+Projects which implemented this
 ------------------------------
 
 * [Magento Composer Installer](https://github.com/magento-hackathon/magento-composer-installer) - installer for Magento Modules via Composer
